@@ -1,8 +1,7 @@
 { 
   "version": 2,
   "rewrites": [{ 
-    "source": "index.js",
-    "use": "@now/node"
+    "source": "index.js"
     }],
     "routes": [
       {

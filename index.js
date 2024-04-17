@@ -11,17 +11,29 @@ const protectedRoutes = require("./routes/protectedRoutes");
 dotenv.config();
 const PORT = process.env.PORT;
 
+const corsOptions = {
+  origin: "http://localhost:5173",
+  methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+  credentials: true,
+};
+
 const app = express();
-app.use(cors());
+
 app.use(cookieParser());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/user", authRoute);
 app.use("/protected", protectedRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Greetings from CodeLab!!!")
+})
+
 const server = http.createServer(app);
 setupSocketIO(server);
 
 server.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
+  console.log(`Server started`);
 });

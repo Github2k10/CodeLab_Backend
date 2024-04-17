@@ -24,7 +24,7 @@ const verifyToken = (req, res, next) => {
     if (!token) {
       return res.status(401).json({ error: "Access denied" });
     }
-    
+
     // Verify the token and decode it
     const decode = jwt.verify(token, process.env.SECERT_KEY);
 

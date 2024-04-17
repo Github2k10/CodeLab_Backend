@@ -4,12 +4,13 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 
+dotenv.config();
+const PORT = process.env.PORT;
+
 const authRoute = require("./routes/auth");
 const setupSocketIO = require("./socket/socket");
 const protectedRoutes = require("./routes/protectedRoutes");
 
-dotenv.config();
-const PORT = process.env.PORT;
 
 const corsOptions = {
   origin: "http://localhost:5173",

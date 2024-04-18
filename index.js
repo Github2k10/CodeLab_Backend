@@ -12,8 +12,9 @@ const protectedRoutes = require("./routes/protectedRoutes");
 const PORT = process.env.PORT;
 
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost:5173",
   methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+  credentials: true,
 };
 
 const app = express();

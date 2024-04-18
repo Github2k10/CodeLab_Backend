@@ -18,8 +18,8 @@ const jwt = require("jsonwebtoken");
 const verifyToken = (req, res, next) => {
   try {
     // Extract the token from the AuthorizationToken header
-    console.log(req.cookies);
-    const token = req.cookies.AuthToken;
+    console.log(req.headers.authorization);
+    const token = req.headers.authorization;
 
     // If no token is provided, send a 401 Unauthorized response
     if (!token) {

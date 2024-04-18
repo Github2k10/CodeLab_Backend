@@ -177,7 +177,8 @@ router.post("/login", async (req, res) => {
 
     res.cookie("AuthToken", token, {
       maxAge: 600000000,
-      sameSite: none,
+      httpOnly: true,
+      sameSite: "none",
     });
 
     res.status(200).json({
@@ -186,6 +187,7 @@ router.post("/login", async (req, res) => {
       email: user.email,
     });
   } catch (err) {
+    console.log(err);
     // Handle any errors that occur during the authentication process
     return res.status(500).json({
       message: "Unable to authenticate user",

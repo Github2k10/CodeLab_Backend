@@ -105,7 +105,11 @@ router.post("/register", async (req, res) => {
       }
     );
 
-    res.cookie("AuthToken", token, { maxAge: 600000000, httpOnly: true });
+    res.cookie("AuthToken", token, {
+      maxAge: 600000000,
+      httpOnly: true,
+      sameSite: none,
+    });
 
     res.status(201).json({
       userId: userData._id,
@@ -172,7 +176,11 @@ router.post("/login", async (req, res) => {
       }
     );
 
-    res.cookie("AuthToken", token, { maxAge: 600000000 });
+    res.cookie("AuthToken", token, {
+      maxAge: 600000000,
+      httpOnly: true,
+      sameSite: none,
+    });
 
     res.status(200).json({
       userId: user._id,

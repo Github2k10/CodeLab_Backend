@@ -8,7 +8,6 @@ const setupSocketIO = (server) => {
       origin: "*",
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["my-custom-header"],
-      credentials: true,
     },
   });
 

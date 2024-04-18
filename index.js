@@ -12,9 +12,7 @@ const protectedRoutes = require("./routes/protectedRoutes");
 const PORT = process.env.PORT;
 
 const corsOptions = {
-  origin: "https://codelab-live.netlify.app",
-  methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
-  credentials: true,
+  origin: "*",
 };
 
 const app = express();

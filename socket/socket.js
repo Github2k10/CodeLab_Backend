@@ -5,10 +5,7 @@ const setupSocketIO = (server) => {
 
   const io = new Server(server, {
     cors: {
-      origin: "https://codelab-live.netlify.app/",
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      allowedHeaders: ["my-custom-header"],
-      credentials: true,
+      origin: "*"
     },
   });
 

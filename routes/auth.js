@@ -105,14 +105,11 @@ router.post("/register", async (req, res) => {
       }
     );
 
-    res.cookie("AuthToken", token, {
-      maxAge: 600000000,
-    });
-
     res.status(201).json({
       userId: userData._id,
       username: userData.username,
       email: userData.email,
+      AuthToken: token,
     });
   } catch (err) {
     // Handle any errors that occur during the registration process
@@ -174,17 +171,13 @@ router.post("/login", async (req, res) => {
       }
     );
 
-    res.cookie("AuthToken", token, {
-      maxAge: 600000000,
-    });
-
     res.status(200).json({
       userId: user._id,
       username: user.username,
       email: user.email,
+      AuthToken: token,
     });
   } catch (err) {
-    console.log(err);
     // Handle any errors that occur during the authentication process
     return res.status(500).json({
       message: "Unable to authenticate user",

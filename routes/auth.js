@@ -108,6 +108,8 @@ router.post("/register", async (req, res) => {
     res.cookie("AuthToken", token, {
       maxAge: 600000000,
       sameSite: none,
+      httpOnly: true,
+      secure: true,
     });
 
     res.status(201).json({
@@ -179,6 +181,7 @@ router.post("/login", async (req, res) => {
       maxAge: 600000000,
       httpOnly: true,
       sameSite: "none",
+      secure: true,
     });
 
     res.status(200).json({

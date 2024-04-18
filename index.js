@@ -28,6 +28,7 @@ app.use("/user", authRoute);
 app.use("/protected", protectedRoutes);
 
 app.get("/", (req, res) => {
+  console.log(req)
   res.send("Greetings from CodeLab!!!")
 })
 
